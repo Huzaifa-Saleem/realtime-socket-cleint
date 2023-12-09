@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://realtime-notes-api.onrender.com");
 
 const Text = ({
   params,
