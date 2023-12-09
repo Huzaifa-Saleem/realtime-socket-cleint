@@ -32,8 +32,18 @@ const Text = ({
   const handleText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     setText(newText);
-    socket.emit("text-change", newText);
   };
+
+  useEffect(() => {
+    // send the text to the server when the person stops typing
+    const timeout = setTimeout(() => {
+      socket.emit("text-change", text);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [text]);
 
   return (
     <div
