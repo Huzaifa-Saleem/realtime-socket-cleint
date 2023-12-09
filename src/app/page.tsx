@@ -1,6 +1,15 @@
+"use client";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    fetch("https://realtime-notes-api.onrender.com")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <main className="flex flex-col justify-center items-center h-[100vh]">
       <h1 className="text-[45px] font-bold">WELCOME!</h1>

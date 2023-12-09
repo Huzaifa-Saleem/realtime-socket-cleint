@@ -15,7 +15,7 @@ const Text = ({
 }) => {
   const [text, setText] = React.useState("");
 
-  const BASE_URL = "http://localhost:3000";
+  const BASE_URL = "https://realtime-notes-app.vercel.app/";
 
   useEffect(() => {
     socket.emit("join-room", params.id);
